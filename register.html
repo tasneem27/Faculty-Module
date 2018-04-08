@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Faculty Login</title>
+<style>
+	@media(min-width:1200px)
+	{
+		#addb {
+			left:13%;
+		     }
+	}
+	@media(min-width:922px)and (max-width:1199px)
+	{
+		#addb {
+			left:10%;
+		     }
+	}
+	@media(max-width:921px)
+	{
+		#addb {
+			left:5%;
+		     }
+	}
+	
+</style>
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' 			rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		var original_text = "<?php echo htmlentities($text, ENT_QUOTES); ?>";
+
+		function showEditBox() {
+
+	    // Fetch the EditBoxContainer div
+
+	    var container = document.getElementById("EditBoxContainer");
+
+	     
+
+	    // Make sure it was actually found.
+
+	    if (container) {
+
+	        // Create a new textarea
+
+	       /* var area = document.createElement("textarea");
+
+	        area.id = "MyEditBox";
+
+	        area.style.width = "100px";
+
+	        area.style.height = "40px";*/
+
+	 	var table = document.getElementById("add");
+    		var row = table.insertRow(1);
+    		var cell1 = row.insertCell(0);
+    		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		cell1.innerHTML="<td><input type='text' name='uni'> </td>";
+		cell2.innerHTML="<td><input type='text' name='board'> </td>";
+		cell3.innerHTML="<td><input type='text' name='school'> </td>";
+		cell4.innerHTML="<td><input type='text' name='year' min='1950' max='2016' type='date'> </td>";
+		cell5.innerHTML="<td><input type='number' name='marks'> </td>";
+	        // Add the text from PHP into the new textarea.
+
+	     //   area.innerHTML = original_text;
+	         
+
+	        // Add it to the EditBoxContainer
+
+	        container.appendChild(area);
+
+	    }
+
+	    else {
+
+	        alert(" you have no EditBoxContainer!");
+
+	    }
+
+	}
+		function validateform()
+		{
+                        
+			var x=document.forms["registerform"]["name"].value;
+			if(x=="")
+				alert("Fill your name .");
+			var pwd=document.forms["registerform"]["password"].value;
+			if(pwd.length>6){
+			if(pwd.match(/[^0-9a-z]/i))
+    				alert("Only letters and digits allowed!");
+			else if(!pwd.match(/\d/))
+    				alert("At least one digit required!");
+			else if(!pwd.match(/[a-z]/i))
+    				alert("At least one letter required!");
+                        
+                        }
+			else
+				alert("Must have atleast 6 letters");
+			var pwd2=document.forms["registerform"]["password2"].value;
+			if(pwd!=pwd2) 
+				alert("Passwords are not samEe");
+                       
+			var x = document.forms["registerform"]["email"].value;
+    			var atpos = x.indexOf("@");
+    			var dotpos = x.lastIndexOf(".");
+    			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        			alert("Not a valid e-mail address");
+       
+    			
+                    }
+		}
+
+		function inputfocus(x){
+			document.getElementById(x).style.background="light green";			
+		}
+		
+
+	
+	
+</script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo"><span>Shri Govindram Seksaria Institute</span><br> Of 				Technology And Science </span></h1>
+		</div><br/><br/>
+		<div class="login-box" style="background-color: white; max-width:100%; position: relative; top: 10px; left: 					0px; padding-bottom: 3%; border-radius: 5px; box-shadow: 0 5px 50px rgba(0,0,0,0.4); 					text-align: center;overflow-x: hidden;
+    overflow-y: hidden;">
+			<div class="box-header">
+				<h2>Register</h2>
+			</div><form name="registerform" action="registeruser.jsp" method="post" >
+			<p style="font-weight: 700;font-size:.8em;color: #888;letter-spacing: 1px;text-transform: uppercase;
+			line-height: 2em;">
+			User Name<br/>
+			<input type="text" id="uname" name="uname" style="width:32%; height:30px;"><br>
+			Full Name<br/>
+			<input type="text" id="name" name="name" style="width:32%; height:30px;" onblur="inputfocus(this.id)"><br/>
+			
+			Father's Name<br/>
+			<input type="text" id="fathername" name="fathername" style="width:32%; height:30px;"><br/>
+			Permanent Address<br>
+			<textarea name="address1" cols="55" rows="3">Enter permanent address here...</textarea>
+                        <br><br>Current Address<br>
+			<textarea name="address2" cols="55" rows="3">Enter current address here...</textarea>
+			<br><br>Contact Number<br/>
+			<input type="tel" id="phone" name="phone" style="width:32%; height:30px;">
+			<br>Email ID<br/>
+			<input type="email" id="email" name="email" style="width:32%; height:30px;"><br>
+			Gender<br>
+			<input type="radio" name="gender" value="male" checked > Male &nbsp&nbsp&nbsp
+  			<input type="radio" name="gender" value="female" > Female<br>
+			<br>PAN Number<br/>
+			<input type="tel" id="pan" name="pan" style="width:32%; height:30px;">
+			<br>Aadhar Number<br/>
+			<input type="tel" id="aadhar" name="aadhar" style="width:32%; height:30px;">
+			<table align=center id="add" width=25% cellpadding=0px style="font-weight: 700;font-size:.8em;color: 				#888;letter-spacing: 1px;text-transform: uppercase;
+			line-height: 2em;">
+			<tr>
+				<th width=25%> Degree/Certificate</th>
+				<th width=25%> University/Board</th>
+				<th width=25%> Institute/School</th>
+				<th width=25%> Year Of Passing</th>
+				<th width=25%> CGPA/Percentage</th>
+			</tr>
+
+			<tr id="lol">
+    			<td width="25%">
+        			<input type="text" name="uni" />
+   				</td>
+    			<td width="25%" align="center">
+        		 <input type="text" name="board" />
+  	 			</td>
+   				<td width="25%">
+        		 <input type="text" name="school" />
+    			</td>
+    			<td width="25%">
+        			<input type="text" name="year" min="1950" max="2016" type="date"/>
+   				</td>
+    			<td width="25%" align="center">
+        		 <input type="number" step="any" name="marks" />
+  	 			</td>
+			</tr>
+			
+			
+			</table>
+			
+			<a href="javascript: void(0);" id="addb" onclick="showEditBox()" style="height:20px;background-color:#665851; position:absolute;left:23%; color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;">+ADD</a>
+
+			<div id="EditBoxContainer"></div>
+			<p style="font-weight: 700;font-size:.8em;color: #888;letter-spacing: 1px;text-transform: uppercase;
+			line-height: 2em;">
+			<br>Joining Date<br/>
+			<input type="date" name="joining" id="joining" style="width:32%; height:30px;">
+			<br>Year's Of Experience<br/>
+			<input type="number" name="exp" id="exp" style="width:32%; height:30px;">
+			<br>Department<br/>
+			<select class="dropdown" id="dept" name="dept" onchange="new()" style="width:40%; height:45px;" >
+			<option >Pick One</option>
+			<option value="cs">Computer Science</option>
+			<option value="it">Information Technology</option>
+			<option value="ee">Electrical Engineering</option>
+			<option value="ei">Electronics And Instrumentation</option>
+			<option value="me">Mechanical Engineering</option>
+			<option value="im">Industrial Management</option>
+			<option value="ce">Civil Engineering</option>
+			</select>
+			<br/>Password <br/>
+			<input type="password" id="password" name="password" style="width:32%; height:30px;"><br>
+			Confirm Password<br/>
+			<input type="password" id="password2" name="password2" style="width:32%; height:30px;">
+			<br/>
+                       
+			<button type="submit" onclick="validateform()" style="width:30%; height:60px;font-size:15px;">Register</button>
+			<br/>
+			</p>
+			</form>
+			</p>
+		</div>
+	</div>
+</body>
+
+
+
+</html>
